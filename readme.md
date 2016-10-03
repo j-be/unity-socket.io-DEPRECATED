@@ -1,3 +1,7 @@
+Forked from (https://github.com/fpanettieri/unity-socket.io-DEPRECATED). Changes:
+
+* Add parameter for namespace (messages only) when emitting
+
 --------------------------------------------------------------------------------
         DEPRECATED                   SocketIO for Unity - v1.0.0                          
 --------------------------------------------------------------------------------
