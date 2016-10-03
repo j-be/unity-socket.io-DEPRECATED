@@ -43,6 +43,7 @@ namespace SocketIO
 		#region Public Properties
 
 		public string url = "ws://127.0.0.1:4567/socket.io/?EIO=3&transport=websocket";
+		public string messageNamespace = "/";
 		public bool autoConnect = true;
 		public int reconnectDelay = 5;
 		public float ackExpirationTime = 1800f;
@@ -290,7 +291,7 @@ namespace SocketIO
 
 		private void EmitMessage(int id, string raw)
 		{
-			EmitPacket(new Packet(EnginePacketType.MESSAGE, SocketPacketType.EVENT, 0, "/", id, new JSONObject(raw)));
+			EmitPacket(new Packet(EnginePacketType.MESSAGE, SocketPacketType.EVENT, 0, this.messageNamespace, id, new JSONObject(raw)));
 		}
 
 		private void EmitClose()
