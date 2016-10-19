@@ -46,7 +46,8 @@ namespace SocketIO
 
 		public void Invoke(JSONObject ev)
 		{
-			action.Invoke(ev);
+			if (action != null)
+				action.Invoke(ev);
 		}
 
 		public override string ToString()

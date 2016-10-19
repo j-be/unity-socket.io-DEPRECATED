@@ -42,8 +42,6 @@ namespace SocketIO
 	{
 		#region Public Properties
 
-		public string url = "ws://127.0.0.1:4567/socket.io/?EIO=3&transport=websocket";
-		public string messageNamespace = "/";
 		public bool autoConnect = true;
 		public int reconnectDelay = 5;
 		public float ackExpirationTime = 1800f;
@@ -57,6 +55,8 @@ namespace SocketIO
 		#endregion
 
 		#region Private Properties
+		public string url;
+		public string messageNamespace;
 
 		private volatile bool connected;
 		private volatile bool thPinging;
@@ -87,6 +87,11 @@ namespace SocketIO
 		#if SOCKET_IO_DEBUG
 		public Action<string> debugMethod;
 		#endif
+
+		public SocketIOComponent(string url, string messageNamespace = "/") {
+			this.url = url + "/socket.io/?EIO=4&transport=websocket";
+			this.messageNamespace = messageNamespace;
+		}
 
 		#region Unity interface
 
